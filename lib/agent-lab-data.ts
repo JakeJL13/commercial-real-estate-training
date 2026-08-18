@@ -12,7 +12,7 @@ export const agentLabModule = {
   title: "Build Your Financial Agent",
   subtitle: "Hands-on Workshop",
   description:
-    "Turn AJ's laptop into a working financial-analyst agent. Install VS Code and Claude Code, then build a local agent that reads real Meridian Tower documents and produces variance analysis, NOI reconciliation, and deal underwriting summaries. Nothing ever gets uploaded to a website. Files stay on your Mac.",
+    "Turn AJ's laptop into a working financial-analyst agent. Install VS Code and Claude Code, then build a local agent that reads real Ram and Wolf documents and produces variance analysis, NOI reconciliation, and deal underwriting summaries. Nothing ever gets uploaded to a website. Files stay on your Mac.",
 }
 
 export const agentLabLessons: AgentLabLesson[] = [
@@ -38,7 +38,7 @@ export const agentLabLessons: AgentLabLesson[] = [
     title: "The Working Folder",
     subtitle: "Give the agent something to read",
     duration: 8,
-    goal: "Download the Meridian Tower sample documents and set up your working folder with the agent's system instructions.",
+    goal: "Download the Ram and Wolf sample documents and set up your working folder with the agent's system instructions.",
   },
   {
     id: "al4",
@@ -46,7 +46,7 @@ export const agentLabLessons: AgentLabLesson[] = [
     title: "Rent Roll Variance Agent",
     subtitle: "Your first real analysis",
     duration: 15,
-    goal: "Run a month-over-month variance analysis on the Meridian Tower rent roll.",
+    goal: "Run a month-over-month variance analysis on the Ram and Wolf rent roll.",
   },
   {
     id: "al5",
@@ -62,7 +62,7 @@ export const agentLabLessons: AgentLabLesson[] = [
     title: "Deal Underwriting Agent",
     subtitle: "Read the OM, write the brief",
     duration: 15,
-    goal: "Turn the Meridian Tower offering memo into a one-page underwriting summary with cap rate math and diligence questions.",
+    goal: "Turn the Ram and Wolf offering memo into a one-page underwriting summary with cap rate math and diligence questions.",
   },
   {
     id: "al7",
@@ -70,7 +70,7 @@ export const agentLabLessons: AgentLabLesson[] = [
     title: "Capstone: The Full Deal Packet",
     subtitle: "One agent, three documents, one deliverable",
     duration: 20,
-    goal: "Combine all three workflows into a single command that produces a full Meridian Tower deal review.",
+    goal: "Combine all three workflows into a single command that produces a full Ram and Wolf deal review.",
   },
 ]
 

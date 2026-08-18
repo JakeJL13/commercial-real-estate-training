@@ -1,6 +1,6 @@
 # CONFIDENTIAL OFFERING MEMORANDUM
 
-## Meridian Tower
+## Ram and Wolf
 
 **601 Cascade Avenue, Seattle, WA 98101**
 
@@ -12,9 +12,9 @@ All information contained herein has been obtained from sources deemed reliable 
 
 ## Executive Summary
 
-Meridian Tower is a 54,620 square foot Class A office and retail property located in Seattle's Denny Triangle, at the intersection of Cascade Avenue and 6th Street. Built in 2004 and renovated in 2019, the six-story building features 51,820 SF of office space across floors 2–6 and 2,800 SF of ground-floor retail. The property is 85.7% leased to a diverse tenant roster anchored by Ridgewood Capital Partners and Fjord Analytics.
+Ram and Wolf is a 54,620 square foot Class A office and retail property located in Seattle's Denny Triangle, at the intersection of Cascade Avenue and 6th Street. Built in 2004 and renovated in 2019, the six-story building features 51,820 SF of office space across floors 2–6 and 2,800 SF of ground-floor retail. The property is 85.7% leased to a diverse tenant roster anchored by Ridgewood Capital Partners and Fjord Analytics.
 
-The Seller is offering Meridian Tower for sale on an all-cash, unpriced basis. Guidance suggests pricing in the range of **$21,000,000 to $22,500,000**, reflecting a going-in cap rate of **6.20% to 6.65%** on trailing twelve-month net operating income.
+The Seller is offering Ram and Wolf for sale on an all-cash, unpriced basis. Guidance suggests pricing in the range of **$21,000,000 to $22,500,000**, reflecting a going-in cap rate of **6.20% to 6.65%** on trailing twelve-month net operating income.
 
 ## Investment Highlights
 
@@ -48,7 +48,7 @@ The property is home to nine active tenants and two vacant suites. Key tenants i
 - **Ridgewood Capital Partners** — 4,820 SF office (floors 1–2). Investment advisory firm. Lease expires February 2027. Current rent $35.00 PSF.
 - **Fjord Analytics** — 7,200 SF office (floor 6). Data analytics platform, Series C. Lease expires December 2026 with active renewal negotiation.
 - **Hearth Digital Studios** — 6,100 SF creative office (floor 2). Recently expanded from 4,800 SF in Q1 2026.
-- **Meridian Wellness Group** — 2,800 SF ground-floor retail. Ten-year lease running through April 2033. Highest PSF rent in building at $50.00.
+- **Ram and Wolf Wellness Group** — 2,800 SF ground-floor retail. Ten-year lease running through April 2033. Highest PSF rent in building at $50.00.
 - **Kestrel Advisory Group** — 5,340 SF office (floor 3). Currently on month-to-month holdover; landlord negotiating 5-year renewal at $37.00 PSF.
 
 Two suites are currently vacant: 202 (2,450 SF) and 501 (3,900 SF), together representing 11.6% of NRA. Suite 202 has been marketed since February 2026 at asking rent of $36.00 PSF.
@@ -71,7 +71,7 @@ Note: Trailing 12-month NOI reflects two months of vacancy loss from Suite 501 (
 
 ## Market Overview
 
-The Denny Triangle submarket contains 8.1 million SF of office inventory. As of Q2 2026, direct vacancy stood at 14.8%, down 190 basis points year-over-year. Class A asking rents averaged $46.20 PSF gross for buildings comparable to Meridian Tower. Recent comparable transactions include:
+The Denny Triangle submarket contains 8.1 million SF of office inventory. As of Q2 2026, direct vacancy stood at 14.8%, down 190 basis points year-over-year. Class A asking rents averaged $46.20 PSF gross for buildings comparable to Ram and Wolf. Recent comparable transactions include:
 
 - **Alder Building (2024 Q4)** — $22,400,000, 6.35% cap rate, $412/SF
 - **Nine Cascade (2025 Q2)** — $18,900,000, 6.90% cap rate, $389/SF

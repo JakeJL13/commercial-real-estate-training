@@ -163,7 +163,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     short: "Asking the model to do a task with no examples.",
     long: "Fastest but least reliable for anything non-standard. Works well for common tasks the model has seen thousands of times. Fails when your CRE task has an unusual output shape.",
     creExample:
-      "\"Draft an email to a tenant late on rent\" works zero-shot. \"Abstract this Meridian Tower lease into our internal 14-field schema\" needs at least a few examples.",
+      "\"Draft an email to a tenant late on rent\" works zero-shot. \"Abstract this Ram and Wolf lease into our internal 14-field schema\" needs at least a few examples.",
     related: ["few-shot", "prompt-engineering"],
   },
   {
@@ -203,7 +203,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     short: "The runtime scaffolding around an LLM that turns it into an agent.",
     long: "The harness manages the loop, calls tools, handles errors, stores memory, and applies safety rails. Claude Code, Cursor, OpenClaw, Perplexity Computer are all harnesses. The LLM is the brain, the harness is the body.",
     creExample:
-      "AJ runs OpenClaw locally as a harness around Llama 3.2. When he asks it to reconcile the Meridian rent roll, OpenClaw handles the tool calls and file access. The model itself never touches the disk.",
+      "AJ runs OpenClaw locally as a harness around Llama 3.2. When he asks it to reconcile the Ram and Wolf rent roll, OpenClaw handles the tool calls and file access. The model itself never touches the disk.",
     related: ["agent", "agent-loop", "tool-calling"],
   },
   {
@@ -211,7 +211,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Tool Calling / Function Calling",
     category: "Agents & Automation",
     short: "The model's ability to request that specific software functions run.",
-    long: "Instead of guessing, the model says, in structured JSON, \"call get_rent_roll(property='Meridian Tower')\". The harness runs it and hands back the result. This is what turns text-only LLMs into real automation.",
+    long: "Instead of guessing, the model says, in structured JSON, \"call get_rent_roll(property='Ram and Wolf')\". The harness runs it and hands back the result. This is what turns text-only LLMs into real automation.",
     creExample:
       "AJ's Custom GPT calls a read_pdf tool to open a lease, then an extract_terms tool to parse it, then a write_row tool to update the abstract log.",
     related: ["agent", "agent-harness", "mcp"],
@@ -413,7 +413,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     short: "An open-source agent harness that runs locally around any LLM.",
     long: "Think Claude Code but self-hostable and model-agnostic. Handles the loop, tool calls, file access, and safety checks. Bootcamp Day 3 uses OpenClaw to demonstrate a fully local agent.",
     creExample:
-      "AJ pairs OpenClaw with local Llama 3.2 to build a Meridian Tower reconciliation agent that never leaves his Mac.",
+      "AJ pairs OpenClaw with local Llama 3.2 to build a Ram and Wolf reconciliation agent that never leaves his Mac.",
     related: ["agent-harness", "local-model"],
   },
   {

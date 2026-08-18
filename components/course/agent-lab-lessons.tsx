@@ -88,7 +88,7 @@ function Lesson1() {
             title: "Create an API key",
             body: (
               <P>
-                Settings, API Keys, Create Key. Name it &quot;Claude Code Meridian&quot;. Copy the key immediately. It
+                Settings, API Keys, Create Key. Name it &quot;Claude Code Ram and Wolf&quot;. Copy the key immediately. It
                 starts with sk-ant- and will only be shown once.
               </P>
             ),
@@ -150,7 +150,7 @@ function Lesson2() {
 
       <H2>Your First Prompt</H2>
       <P>Create a scratch folder and try a quick test:</P>
-      <CopyBlock code={"mkdir ~/claude-test\ncd ~/claude-test\necho \"Meridian Tower is a 54,620 SF office building in Seattle.\" > notes.txt\nclaude"} />
+      <CopyBlock code={"mkdir ~/claude-test\ncd ~/claude-test\necho \"Ram and Wolf is a 54,620 SF office building in Seattle.\" > notes.txt\nclaude"} />
       <P>Once Claude Code launches, type:</P>
       <CopyBlock language="prompt" code={"Read notes.txt and tell me what building it describes."} />
       <P>
@@ -177,7 +177,7 @@ function Lesson3() {
         file that tells it who it is and how to think.
       </P>
 
-      <H2>Download the Meridian Tower Files</H2>
+      <H2>Download the Ram and Wolf Files</H2>
       <P>
         These are the sample documents for the rest of the workshop. Download all five to your Mac. In the next step you
         will move them into a working folder together.
@@ -187,7 +187,7 @@ function Lesson3() {
           href="/agent-lab/CLAUDE.md"
           filename="CLAUDE.md"
           label="CLAUDE.md"
-          description="The agent's system instructions. Tells Claude it is a CRE analyst working on Meridian Tower, and how to behave."
+          description="The agent's system instructions. Tells Claude it is a CRE analyst working on Ram and Wolf, and how to behave."
         />
         <DownloadCard
           href="/agent-lab/chart-of-accounts.md"
@@ -196,40 +196,40 @@ function Lesson3() {
           description="Standard CRE chart of accounts. Reference file the agent uses when categorizing P&L line items."
         />
         <DownloadCard
-          href="/agent-lab/meridian-rent-roll-current.csv"
-          filename="meridian-rent-roll-current.csv"
+          href="/agent-lab/ram-and-wolf-rent-roll-current.csv"
+          filename="ram-and-wolf-rent-roll-current.csv"
           label="Current rent roll"
-          description="Meridian Tower rent roll as of July 2026. 11 units, 85.7% occupancy."
+          description="Ram and Wolf rent roll as of July 2026. 11 units, 85.7% occupancy."
         />
         <DownloadCard
-          href="/agent-lab/meridian-rent-roll-prior.csv"
-          filename="meridian-rent-roll-prior.csv"
+          href="/agent-lab/ram-and-wolf-rent-roll-prior.csv"
+          filename="ram-and-wolf-rent-roll-prior.csv"
           label="Prior rent roll"
-          description="Meridian Tower rent roll as of January 2026. For month-over-month variance analysis."
+          description="Ram and Wolf rent roll as of January 2026. For month-over-month variance analysis."
         />
         <DownloadCard
-          href="/agent-lab/meridian-t12-pnl.csv"
-          filename="meridian-t12-pnl.csv"
+          href="/agent-lab/ram-and-wolf-t12-pnl.csv"
+          filename="ram-and-wolf-t12-pnl.csv"
           label="Trailing 12-month P&L"
           description="Aug 2025 through Jul 2026, with underwriting comparison and variance columns."
         />
         <DownloadCard
-          href="/agent-lab/meridian-offering-memo.md"
-          filename="meridian-offering-memo.md"
+          href="/agent-lab/ram-and-wolf-offering-memo.md"
+          filename="ram-and-wolf-offering-memo.md"
           label="Offering memorandum"
-          description="Meridian Tower OM. Deal terms, tenant summary, financials, value-add narrative."
+          description="Ram and Wolf OM. Deal terms, tenant summary, financials, value-add narrative."
         />
       </div>
 
       <H2>Set Up the Working Folder</H2>
       <P>Open Terminal and run:</P>
-      <CopyBlock code={"mkdir -p ~/meridian-agent\ncd ~/meridian-agent\nmv ~/Downloads/CLAUDE.md .\nmv ~/Downloads/chart-of-accounts.md .\nmv ~/Downloads/meridian-*.csv .\nmv ~/Downloads/meridian-offering-memo.md .\nls -la"} />
+      <CopyBlock code={"mkdir -p ~/ram-and-wolf-agent\ncd ~/ram-and-wolf-agent\nmv ~/Downloads/CLAUDE.md .\nmv ~/Downloads/chart-of-accounts.md .\nmv ~/Downloads/ram-and-wolf-*.csv .\nmv ~/Downloads/ram-and-wolf-offering-memo.md .\nls -la"} />
       <P>
-        The last command should show all six files sitting in <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-[13px]">~/meridian-agent</code>.
+        The last command should show all six files sitting in <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-[13px]">~/ram-and-wolf-agent</code>.
       </P>
 
       <H2>Open the Folder in VS Code</H2>
-      <CopyBlock code={"code ~/meridian-agent"} />
+      <CopyBlock code={"code ~/ram-and-wolf-agent"} />
       <P>
         VS Code opens the folder. In the sidebar you will see your six files. Open <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-[13px]">CLAUDE.md</code>{" "}
         and read it. This is the personality and rules of your agent. Everything Claude Code does in this folder will
@@ -260,16 +260,16 @@ function Lesson4() {
   return (
     <div className="space-y-5">
       <P>
-        Time to run a real analysis. Open the terminal in your Meridian folder and start Claude Code if it is not already
+        Time to run a real analysis. Open the terminal in your Ram and Wolf folder and start Claude Code if it is not already
         running:
       </P>
-      <CopyBlock code={"cd ~/meridian-agent\nclaude"} />
+      <CopyBlock code={"cd ~/ram-and-wolf-agent\nclaude"} />
 
       <H2>The Prompt</H2>
       <P>Type this in and press Return:</P>
       <CopyBlock
         language="prompt"
-        code={`Compare meridian-rent-roll-current.csv against meridian-rent-roll-prior.csv and produce a variance analysis. Follow the deliverable format in CLAUDE.md. Be specific about which units moved and quantify every claim.`}
+        code={`Compare ram-and-wolf-rent-roll-current.csv against ram-and-wolf-rent-roll-prior.csv and produce a variance analysis. Follow the deliverable format in CLAUDE.md. Be specific about which units moved and quantify every claim.`}
       />
 
       <H2>What You Should Get Back</H2>
@@ -321,7 +321,7 @@ function Lesson5() {
       <H2>The Prompt</H2>
       <CopyBlock
         language="prompt"
-        code={`Reconcile meridian-t12-pnl.csv against the Underwriting T12 column. Categorize every material variance using chart-of-accounts.md. Then build an NOI bridge from Underwriting NOI to actual T12 NOI, quantifying each driver. Flag any anomalies I should follow up on before the quarterly report.`}
+        code={`Reconcile ram-and-wolf-t12-pnl.csv against the Underwriting T12 column. Categorize every material variance using chart-of-accounts.md. Then build an NOI bridge from Underwriting NOI to actual T12 NOI, quantifying each driver. Flag any anomalies I should follow up on before the quarterly report.`}
       />
 
       <H2>What Good Looks Like</H2>
@@ -384,7 +384,7 @@ function Lesson6() {
       <H2>The Prompt</H2>
       <CopyBlock
         language="prompt"
-        code={`Read meridian-offering-memo.md and produce a deal underwriting summary following the format in CLAUDE.md. Cross-check the numbers in the memo against meridian-t12-pnl.csv and flag any discrepancies. Give me three specific diligence questions I should ask the seller.`}
+        code={`Read ram-and-wolf-offering-memo.md and produce a deal underwriting summary following the format in CLAUDE.md. Cross-check the numbers in the memo against ram-and-wolf-t12-pnl.csv and flag any discrepancies. Give me three specific diligence questions I should ask the seller.`}
       />
 
       <H2>Why This Prompt Works</H2>
@@ -440,13 +440,13 @@ function Lesson7() {
       <H2>The Capstone Prompt</H2>
       <CopyBlock
         language="prompt"
-        code={`Produce a complete Meridian Tower deal review. It should contain:
+        code={`Produce a complete Ram and Wolf deal review. It should contain:
 
 1. Deal underwriting summary from the offering memo, cross-checked against actuals
 2. Rent roll variance analysis from prior to current period
 3. NOI reconciliation from underwriting to trailing twelve
 4. A synthesis section that combines all three: what is the story of this asset today, what is the buyer actually buying, and what are the three most important diligence items in priority order
-5. Save the full output as meridian-deal-review-2026-07.md in this folder
+5. Save the full output as ram-and-wolf-deal-review-2026-07.md in this folder
 
 Follow all CLAUDE.md rules. Cite specific line items. Show your math.`}
       />
