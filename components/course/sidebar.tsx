@@ -1,12 +1,12 @@
 "use client"
 
-import { Building2, LayoutGrid, CheckCircle2, Circle, GraduationCap, BookOpen, BarChart3 } from "lucide-react"
+import { Building2, LayoutGrid, CheckCircle2, Circle, GraduationCap, BookOpen, BarChart3, Terminal } from "lucide-react"
 import { modules, course } from "@/lib/course-data"
 import { useCourse } from "./course-provider"
 import { cn } from "@/lib/utils"
 
 export function Sidebar() {
-  const { view, goDashboard, goModule, goGlossary, goStateOfAi, modulePercent, overallPercent } = useCourse()
+  const { view, goDashboard, goModule, goGlossary, goStateOfAi, goAgentLab, modulePercent, overallPercent } = useCourse()
 
   const activeModuleId =
     view.name === "module" ? view.moduleId : undefined
@@ -80,6 +80,23 @@ export function Sidebar() {
         >
           <BarChart3 className="size-4" />
           State of AI in America
+        </button>
+
+        <p className="px-3 pb-2 pt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-sidebar-foreground/55">
+          Workshop
+        </p>
+
+        <button
+          onClick={goAgentLab}
+          className={cn(
+            "mb-1 flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+            view.name === "agent-lab" || view.name === "agent-lab-lesson"
+              ? "bg-sidebar-accent text-sidebar-accent-foreground"
+              : "text-sidebar-foreground hover:bg-sidebar-accent/50",
+          )}
+        >
+          <Terminal className="size-4" />
+          Build Your Agent
         </button>
 
         <p className="px-3 pb-2 pt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-sidebar-foreground/55">

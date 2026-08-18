@@ -8,6 +8,7 @@ import { ModuleDetail } from "./module-detail"
 import { LessonDetail } from "./lesson-detail"
 import { Glossary } from "./glossary"
 import { StateOfAi } from "./state-of-ai"
+import { AgentLabIndex, AgentLabLesson } from "./agent-lab"
 
 export function Platform() {
   const { view, goDashboard, overallPercent } = useCourse()
@@ -32,6 +33,8 @@ export function Platform() {
         {view.name === "lesson" && <LessonDetail lessonId={view.lessonId} />}
         {view.name === "glossary" && <Glossary />}
         {view.name === "state-of-ai" && <StateOfAi />}
+        {view.name === "agent-lab" && <AgentLabIndex />}
+        {view.name === "agent-lab-lesson" && <AgentLabLesson lessonId={view.lessonId} />}
       </main>
     </div>
   )

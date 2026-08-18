@@ -9,6 +9,8 @@ type View =
   | { name: "lesson"; lessonId: string }
   | { name: "glossary" }
   | { name: "state-of-ai" }
+  | { name: "agent-lab" }
+  | { name: "agent-lab-lesson"; lessonId: string }
 
 interface CourseContextValue {
   view: View
@@ -18,6 +20,8 @@ interface CourseContextValue {
   goLesson: (lessonId: string) => void
   goGlossary: () => void
   goStateOfAi: () => void
+  goAgentLab: () => void
+  goAgentLabLesson: (lessonId: string) => void
   toggleComplete: (lessonId: string) => void
   isComplete: (lessonId: string) => boolean
   completedCount: number
@@ -50,6 +54,14 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
   }, [])
   const goStateOfAi = useCallback(() => {
     setView({ name: "state-of-ai" })
+    if (typeof window !== "undefined") window.scrollTo(0, 0)
+  }, [])
+  const goAgentLab = useCallback(() => {
+    setView({ name: "agent-lab" })
+    if (typeof window !== "undefined") window.scrollTo(0, 0)
+  }, [])
+  const goAgentLabLesson = useCallback((lessonId: string) => {
+    setView({ name: "agent-lab-lesson", lessonId })
     if (typeof window !== "undefined") window.scrollTo(0, 0)
   }, [])
 
@@ -89,6 +101,8 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
       goLesson,
       goGlossary,
       goStateOfAi,
+      goAgentLab,
+      goAgentLabLesson,
       toggleComplete,
       isComplete,
       completedCount: completed.size,
@@ -96,7 +110,7 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
       modulePercent,
       nextLessonId,
     }),
-    [view, completed, goDashboard, goModule, goLesson, goGlossary, goStateOfAi, toggleComplete, isComplete, modulePercent, nextLessonId],
+    [view, completed, goDashboard, goModule, goLesson, goGlossary, goStateOfAi, goAgentLab, goAgentLabLesson, toggleComplete, isComplete, modulePercent, nextLessonId],
   )
 
   return <CourseContext.Provider value={value}>{children}</CourseContext.Provider>
