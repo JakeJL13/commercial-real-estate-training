@@ -22,7 +22,7 @@ export function Platform() {
             <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <Building2 className="size-4" />
             </div>
-            <span className="text-sm font-semibold">Meridian AI Academy</span>
+            <span className="text-sm font-semibold">CRE AI Academy</span>
           </button>
           <span className="font-mono text-xs font-semibold text-muted-foreground">{overallPercent}%</span>
         </div>

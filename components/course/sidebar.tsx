@@ -18,7 +18,7 @@ export function Sidebar() {
           <Building2 className="size-5" strokeWidth={2} />
         </div>
         <div className="leading-tight">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-sidebar-primary">Meridian</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-sidebar-primary">CRE</p>
           <p className="text-sm font-semibold text-sidebar-accent-foreground">AI Academy</p>
         </div>
       </div>

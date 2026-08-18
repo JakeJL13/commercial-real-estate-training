@@ -22,7 +22,7 @@ export interface Module {
 export const course = {
   title: "AI for Commercial Real Estate Asset Management",
   subtitle: "Applied AI Certification",
-  cohort: "Spring 2026 Cohort",
+  cohort: "Summer 2026 Cohort",
 }
 
 export const modules: Module[] = [
