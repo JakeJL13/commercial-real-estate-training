@@ -6,6 +6,8 @@ import { Sidebar } from "./sidebar"
 import { Dashboard } from "./dashboard"
 import { ModuleDetail } from "./module-detail"
 import { LessonDetail } from "./lesson-detail"
+import { Glossary } from "./glossary"
+import { StateOfAi } from "./state-of-ai"
 
 export function Platform() {
   const { view, goDashboard, overallPercent } = useCourse()
@@ -28,6 +30,8 @@ export function Platform() {
         {view.name === "dashboard" && <Dashboard />}
         {view.name === "module" && <ModuleDetail moduleId={view.moduleId} />}
         {view.name === "lesson" && <LessonDetail lessonId={view.lessonId} />}
+        {view.name === "glossary" && <Glossary />}
+        {view.name === "state-of-ai" && <StateOfAi />}
       </main>
     </div>
   )
