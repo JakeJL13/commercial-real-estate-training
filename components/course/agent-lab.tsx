@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowLeft, ArrowRight, Building2, Clock, Terminal, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ArrowRight, Building2, Clock, Terminal, CheckCircle2, Lock } from "lucide-react"
 import { agentLabLessons, agentLabModule, findAgentLabLesson } from "@/lib/agent-lab-data"
 import { useCourse } from "./course-provider"
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,30 @@ import { AgentLabLessonBody } from "./agent-lab-lessons"
 import { cn } from "@/lib/utils"
 
 export function AgentLabIndex() {
-  const { goAgentLabLesson, isComplete } = useCourse()
+  const { goAgentLabLesson, isComplete, curriculumComplete, curriculumLessonsRemaining, goDashboard } = useCourse()
+
+  if (!curriculumComplete) {
+    return (
+      <div className="mx-auto max-w-3xl px-6 py-16 md:px-10">
+        <div className="rounded-xl border border-border bg-card p-10 text-center">
+          <div className="mx-auto flex size-14 items-center justify-center rounded-full border border-border bg-background">
+            <Lock className="size-6 text-muted-foreground" />
+          </div>
+          <h1 className="mt-6 text-2xl font-semibold tracking-tight">Agent Lab is locked</h1>
+          <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
+            The Agent Lab and Build Your Agent workshop unlock once you complete every curriculum lesson.
+            You have {curriculumLessonsRemaining} lesson{curriculumLessonsRemaining === 1 ? "" : "s"} to go.
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Work through Modules 1 through 7 first. Each module includes lessons, workshops, and a vocabulary check.
+          </p>
+          <Button onClick={goDashboard} className="mt-6">
+            Back to dashboard
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
   const done = agentLabLessons.filter((l) => isComplete(`agentlab-${l.id}`)).length
   const pct = Math.round((done / agentLabLessons.length) * 100)

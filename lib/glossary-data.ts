@@ -9,6 +9,7 @@ export interface GlossaryTerm {
     | "Retrieval & Data"
     | "Risk & Governance"
     | "Local & Tooling"
+  moduleId: "m1" | "m2" | "m3" | "m4" | "m5" | "m6" | "m7"
   short: string
   long: string
   creExample: string
@@ -28,6 +29,7 @@ export const glossaryCategories: GlossaryTerm["category"][] = [
 export const glossaryTerms: GlossaryTerm[] = [
   {
     id: "ai",
+    moduleId: "m1",
     term: "Artificial Intelligence (AI)",
     category: "Core Concepts",
     short: "Software that performs tasks that normally need human judgment.",
@@ -38,6 +40,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "ml",
+    moduleId: "m1",
     term: "Machine Learning (ML)",
     category: "Core Concepts",
     short: "Models that learn patterns from historical data.",
@@ -48,6 +51,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "genai",
+    moduleId: "m1",
     term: "Generative AI (GenAI)",
     category: "Core Concepts",
     short: "AI that produces new content: text, images, code, audio.",
@@ -58,6 +62,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "llm",
+    moduleId: "m1",
     term: "Large Language Model (LLM)",
     category: "Models & Architecture",
     short: "A neural network trained to predict the next token in text.",
@@ -68,6 +73,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "transformer",
+    moduleId: "m1",
     term: "Transformer",
     category: "Models & Architecture",
     short: "The neural network architecture that made modern LLMs possible.",
@@ -78,6 +84,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "attention",
+    moduleId: "m1",
     term: "Attention",
     category: "Models & Architecture",
     short: "The mechanism that lets a model focus on the relevant parts of the input.",
@@ -88,6 +95,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "token",
+    moduleId: "m1",
     term: "Token",
     category: "Models & Architecture",
     short: "The unit an LLM reads and writes. Roughly a word or piece of a word.",
@@ -98,6 +106,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "context-window",
+    moduleId: "m1",
     term: "Context Window",
     category: "Models & Architecture",
     short: "The maximum number of tokens the model can consider in one call.",
@@ -108,6 +117,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "chatbot",
+    moduleId: "m1",
     term: "Chatbot",
     category: "Prompting & Interaction",
     short: "A conversational interface on top of an LLM.",
@@ -118,6 +128,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "prompt",
+    moduleId: "m5",
     term: "Prompt",
     category: "Prompting & Interaction",
     short: "The input you give the model. Text, files, and context combined.",
@@ -128,6 +139,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "prompt-engineering",
+    moduleId: "m5",
     term: "Prompt Engineering",
     category: "Prompting & Interaction",
     short: "The practice of writing prompts that produce reliable, useful output.",
@@ -138,6 +150,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "system-prompt",
+    moduleId: "m5",
     term: "System Prompt",
     category: "Prompting & Interaction",
     short: "Hidden instructions that shape every message in a chat.",
@@ -148,6 +161,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "few-shot",
+    moduleId: "m5",
     term: "Few-Shot Prompting",
     category: "Prompting & Interaction",
     short: "Giving the model a few worked examples inside the prompt.",
@@ -158,6 +172,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "zero-shot",
+    moduleId: "m5",
     term: "Zero-Shot Prompting",
     category: "Prompting & Interaction",
     short: "Asking the model to do a task with no examples.",
@@ -168,6 +183,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "actor",
+    moduleId: "m5",
     term: "ACTOR Framework",
     category: "Prompting & Interaction",
     short: "Bootcamp prompt structure: Assign role, Context, Task, Output format, Rules.",
@@ -178,6 +194,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "agent",
+    moduleId: "m1",
     term: "AI Agent",
     category: "Agents & Automation",
     short: "An LLM plus tools plus a loop, that can take actions to reach a goal.",
@@ -188,6 +205,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "agent-loop",
+    moduleId: "m4",
     term: "Agent Loop",
     category: "Agents & Automation",
     short: "The cycle of think, act, observe, repeat that drives an agent.",
@@ -198,6 +216,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "agent-harness",
+    moduleId: "m4",
     term: "Agent Harness",
     category: "Agents & Automation",
     short: "The runtime scaffolding around an LLM that turns it into an agent.",
@@ -208,6 +227,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "tool-calling",
+    moduleId: "m6",
     term: "Tool Calling / Function Calling",
     category: "Agents & Automation",
     short: "The model's ability to request that specific software functions run.",
@@ -218,6 +238,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "mcp",
+    moduleId: "m6",
     term: "Model Context Protocol (MCP)",
     category: "Agents & Automation",
     short: "An open standard for how LLMs connect to tools and data sources.",
@@ -228,6 +249,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "orchestration",
+    moduleId: "m6",
     term: "Agent Orchestration",
     category: "Agents & Automation",
     short: "Coordinating multiple agents or steps to complete a larger workflow.",
@@ -238,6 +260,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "multi-agent",
+    moduleId: "m6",
     term: "Multi-Agent System",
     category: "Agents & Automation",
     short: "Multiple specialized agents working together.",
@@ -248,6 +271,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "custom-gpt",
+    moduleId: "m2",
     term: "Custom GPT",
     category: "Agents & Automation",
     short: "A saved ChatGPT configuration with a system prompt, files, and optional actions.",
@@ -258,6 +282,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "claude-project",
+    moduleId: "m2",
     term: "Claude Project",
     category: "Agents & Automation",
     short: "Anthropic's equivalent of Custom GPT: system prompt plus persistent files.",
@@ -268,6 +293,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "rag",
+    moduleId: "m3",
     term: "Retrieval-Augmented Generation (RAG)",
     category: "Retrieval & Data",
     short: "Fetching relevant documents at query time and adding them to the prompt.",
@@ -278,6 +304,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "embedding",
+    moduleId: "m3",
     term: "Embedding",
     category: "Retrieval & Data",
     short: "A numeric vector representation of a piece of text.",
@@ -288,6 +315,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "vector-db",
+    moduleId: "m3",
     term: "Vector Database",
     category: "Retrieval & Data",
     short: "A database that stores and searches embeddings by similarity.",
@@ -298,6 +326,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "fine-tuning",
+    moduleId: "m3",
     term: "Fine-Tuning",
     category: "Retrieval & Data",
     short: "Training an existing model further on your own data.",
@@ -308,6 +337,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "hallucination",
+    moduleId: "m1",
     term: "Hallucination",
     category: "Risk & Governance",
     short: "When the model produces plausible but factually wrong output.",
@@ -318,6 +348,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "temperature",
+    moduleId: "m7",
     term: "Temperature",
     category: "Risk & Governance",
     short: "How random the model's output is. 0 is deterministic, 1 is creative.",
@@ -328,6 +359,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "top-p",
+    moduleId: "m7",
     term: "Top-p (Nucleus Sampling)",
     category: "Risk & Governance",
     short: "Another randomness control. Limits sampling to the top-p probability mass.",
@@ -338,6 +370,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "guardrails",
+    moduleId: "m7",
     term: "Guardrails",
     category: "Risk & Governance",
     short: "Rules and checks that prevent the model from taking unsafe or off-scope actions.",
@@ -348,6 +381,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "human-in-the-loop",
+    moduleId: "m7",
     term: "Human-in-the-Loop (HITL)",
     category: "Risk & Governance",
     short: "A workflow where a person reviews or approves AI output before it goes live.",
@@ -358,6 +392,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "governance",
+    moduleId: "m7",
     term: "AI Governance",
     category: "Risk & Governance",
     short: "The policies, ownership, and controls around how AI is used at the firm.",
@@ -368,6 +403,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "ollama",
+    moduleId: "m7",
     term: "Ollama",
     category: "Local & Tooling",
     short: "A macOS/Linux/Windows app that runs open-source LLMs locally.",
@@ -378,6 +414,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "lm-studio",
+    moduleId: "m7",
     term: "LM Studio",
     category: "Local & Tooling",
     short: "A GUI for downloading and running local LLMs on a Mac or PC.",
@@ -388,6 +425,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "local-model",
+    moduleId: "m7",
     term: "Local Model",
     category: "Local & Tooling",
     short: "An LLM that runs entirely on your own machine.",
@@ -398,6 +436,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "quantization",
+    moduleId: "m7",
     term: "Quantization",
     category: "Local & Tooling",
     short: "Shrinking a model's numeric precision to make it fit on smaller hardware.",
@@ -408,6 +447,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "openclaw",
+    moduleId: "m7",
     term: "OpenClaw",
     category: "Local & Tooling",
     short: "An open-source agent harness that runs locally around any LLM.",
@@ -418,6 +458,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "api",
+    moduleId: "m3",
     term: "API",
     category: "Local & Tooling",
     short: "The programmatic way to call a model or tool.",
@@ -425,6 +466,424 @@ export const glossaryTerms: GlossaryTerm[] = [
     creExample:
       "A monthly script hits the Anthropic API with each new lease PDF and writes the returned abstract into the asset management SharePoint.",
     related: ["tool-calling", "mcp"],
+  },
+{
+    id: "agentic-ai",
+    moduleId: "m1",
+    term: "Agentic AI",
+    category: "Agents & Automation",
+    short: "An orchestrated network of agents that communicate and hand off work across a multi-step goal.",
+    long: "The layer above single agents. Multiple agents each handle a bounded task, communicate, and hand off to each other across a larger workflow. This is where AI moves from automating a task to automating an end-to-end process.",
+    creExample:
+      "A supervisor agent that screens a deal, hands off to a lease-abstraction agent, then to an NOI-forecasting agent, and finally produces a committee memo without you touching a keyboard.",
+    related: ["agent", "orchestration", "multi-agent"],
+  },
+  {
+    id: "tool-first",
+    moduleId: "m1",
+    term: "Tool-first mindset",
+    category: "Core Concepts",
+    short: "Adding AI as a copilot inside an existing human workflow. The human is still the driver.",
+    long: "Named by Hofmann and Kruhse-Lehtonen (HDSR). Tool-first deployments give a human better software but keep the human as the workflow driver. The bottleneck is still human speed, so gains are measured in minutes, not hours.",
+    creExample:
+      "A chat assistant sitting next to your leasing analyst that helps write Excel formulas faster. Nice, but the analyst is still doing every step.",
+    related: ["agent-first"],
+  },
+  {
+    id: "agent-first",
+    moduleId: "m1",
+    term: "Agent-first mindset",
+    category: "Core Concepts",
+    short: "Redesigning the workflow around the agent as primary actor. Humans supervise exceptions.",
+    long: "The counterpart to tool-first. The agent handles the default path. Humans are looped in for exceptions, ambiguity, or high-stakes calls. This is where the 2-10x productivity gains from HDSR come from.",
+    creExample:
+      "An agent watches your rent roll folder, runs variance analysis automatically, drops a memo in your deal folder, and Slacks you a 3-bullet summary. You review, you do not execute.",
+    related: ["tool-first", "agent-os"],
+  },
+  {
+    id: "agent-os",
+    moduleId: "m1",
+    term: "Agent OS",
+    category: "Core Concepts",
+    short: "The infrastructure layer that exposes business logic as APIs so agents can act on it.",
+    long: "Not a product. An architectural standard from Kruhse-Lehtonen and Hofmann. If your data lives in PDFs and hallway conversations, agents cannot reach it. The Agent OS is whatever makes your business machine-readable.",
+    creExample:
+      "Your PM system has a REST API for rent rolls. Your lease repository has a query endpoint. Your accounting exports GL data on a schedule. That surface is your Agent OS.",
+    related: ["agent-first", "api"],
+  },
+  {
+    id: "pilotitis",
+    moduleId: "m1",
+    term: "Pilotitis",
+    category: "Core Concepts",
+    short: "The failure mode of continuously piloting AI without ever deploying to production.",
+    long: "Coined by Bayer's leadership. The number-one enterprise AI failure mode per Kruhse-Lehtonen and Hofmann's 40+ engagements. Symptoms: same pilot for 6+ months, no committed production plan, endless slide decks.",
+    creExample:
+      "You have been 'evaluating' AI variance analysis for 8 months. You have 3 dashboards and 0 production users. That is pilotitis.",
+    related: ["agent-framework"],
+  },
+  {
+    id: "j-curve",
+    moduleId: "m1",
+    term: "Productivity J-Curve",
+    category: "Core Concepts",
+    short: "Value dips before it climbs. The first months of AI deployment are net-negative on productivity.",
+    long: "Documented by Erik Brynjolfsson at MIT across electricity, IT, and now AI. New technology creates a productivity dip while old and new processes run in parallel. Only 5% of pilots produce measurable value in early stages. The other 95% are in the trough.",
+    creExample:
+      "Month 1 of lease abstraction: analysts spend MORE time double-checking outputs. Month 4: they trust it and reclaim 40% of their week. If you killed it at month 3, you killed it at the trough.",
+    related: ["pilotitis"],
+  },
+  {
+    id: "data-opportunity-matrix",
+    moduleId: "m1",
+    term: "Data opportunity matrix",
+    category: "Core Concepts",
+    short: "A 2x2 grid of business value vs. implementation effort used to prioritize AI initiatives.",
+    long: "Kruhse-Lehtonen and Hofmann's tool for triaging AI opportunities. Four quadrants: high value / low effort (start here), high value / high effort (do second), low value / low effort (opportunistic), low value / high effort (kill).",
+    creExample:
+      "Lease abstraction is high value, low effort. Portfolio-wide predictive maintenance is high value, high effort. Auto-generating email subject lines is low value, low effort.",
+    related: ["agent-framework"],
+  },
+  {
+    id: "agent-strategist",
+    moduleId: "m1",
+    term: "AI Strategist",
+    category: "Core Concepts",
+    short: "The translator role between business leadership and data science teams.",
+    long: "Also called the analytics translator. The person who understands enough of the business to pick the right problems AND enough of the technology to spec a working solution. Kruhse-Lehtonen and Hofmann call this the most critical hire on any AI team.",
+    creExample:
+      "The asset manager who can walk into a data science stand-up, describe a variance workflow in enough detail that engineers can build it, and defend the ROI to the investment committee. That person is the AI Strategist.",
+    related: ["agent-framework"],
+  },
+  {
+    id: "agent-framework",
+    moduleId: "m2",
+    term: "AGENT framework",
+    category: "Agents & Automation",
+    short: "5-phase design process: Audit, Gauge, Engineer, Navigate, Track. Applied to ONE selected workflow.",
+    long: "Introduced by HDSI / DAIN Studios. Universal blueprint for designing agentic workflows. Runs as an 8-week sprint: weeks 1-2 audit and gauge, weeks 3-5 engineer, weeks 6-8 navigate and track. AGENT does not start until the strategy layer has picked ONE workflow.",
+    creExample:
+      "You picked the monthly rent-roll delta briefing as your first workflow (strategy layer). Now run AGENT on it: audit the 5-step workflow, gauge each step, engineer the agent-first version, define navigation, track results in month 1-2.",
+    related: ["audit-step", "gauge-step", "engineer-step", "navigate-step", "track-step"],
+  },
+  {
+    id: "audit-step",
+    moduleId: "m2",
+    term: "Audit (AGENT phase 1)",
+    category: "Agents & Automation",
+    short: "Understand how work is done today. First phase of AGENT.",
+    long: "Document the trigger, map every step (owner, system, input, output), document data flows and roles, define the final output, restate the desired outcome. Deliverable: a process workflow map plus a one-sentence desired outcome.",
+    creExample:
+      "Watch your team's monthly rent-roll delta briefing end to end. Note who does what, where the data comes from, and every clarifying question. That is the audit deliverable.",
+    related: ["agent-framework"],
+  },
+  {
+    id: "gauge-step",
+    moduleId: "m2",
+    term: "Gauge (AGENT phase 2)",
+    category: "Agents & Automation",
+    short: "Assess each step against the outcome using 3 axes. Second phase of AGENT.",
+    long: "Score every step 1-5 on impact, repeatability, complexity. Then mark each step: enhance, automate, or eliminate. High impact plus high repeatability equals automate first. High complexity does not mean 'do not automate,' it means 'pair automation with controls.'",
+    creExample:
+      "For the rent-roll delta workflow: 'pull from Yardi' scores 5/5/1 (automate). 'Flag anomalies' scores 5/3/4 (automate with human review). 'Send email' scores 2/5/1 (automate).",
+    related: ["agent-framework"],
+  },
+  {
+    id: "engineer-step",
+    moduleId: "m2",
+    term: "Engineer (AGENT phase 3)",
+    category: "Agents & Automation",
+    short: "Design the agent-first flow. Redesign, do not retrofit. Third phase of AGENT.",
+    long: "Make data accessible, make decisions explicit, make success measurable, build the straight-through path first then the exception lane, instrument for observability from day one. Do not copy the human workflow; design what an agent-native version looks like.",
+    creExample:
+      "The human variance memo has three meetings baked in. The agent-first version has zero meetings and one review gate. That is redesign, not retrofit.",
+    related: ["agent-framework", "instructions", "knowledge"],
+  },
+  {
+    id: "navigate-step",
+    moduleId: "m2",
+    term: "Navigate (AGENT phase 4)",
+    category: "Agents & Automation",
+    short: "Define the human-agent collaboration model. Fourth phase of AGENT.",
+    long: "Agents explain their actions and surface reasoning. Agents accept human intervention gracefully. Humans move from doing the work to governing it: policy definition, approvals, complex exceptions. Design the interface around exceptions, not around everything.",
+    creExample:
+      "For the variance-memo agent, humans review only when a rent delta exceeds $5k or a new lease abstract is unclear. Everything else runs straight through.",
+    related: ["agent-framework", "human-in-the-loop"],
+  },
+  {
+    id: "track-step",
+    moduleId: "m2",
+    term: "Track (AGENT phase 5)",
+    category: "Agents & Automation",
+    short: "Measure value fast with outcome-centric metrics. Fifth phase of AGENT.",
+    long: "Leading indicators beat lagging ones. Track acceptance rate of agent proposals (target 70%+ once stabilized), first-pass validation rate, reliability, latency, exception SLA, adoption rate, conflict volume trend. Weekly review in first 8 weeks, monthly after.",
+    creExample:
+      "Month 3 of the variance agent: acceptance rate 82%, first-pass validation 91%, average exception SLA 4 hours. All green. Continue.",
+    related: ["agent-framework"],
+  },
+  {
+    id: "cowork",
+    moduleId: "m2",
+    term: "Claude Cowork",
+    category: "Agents & Automation",
+    short: "Real-time multi-person collaboration inside a Claude conversation.",
+    long: "Google Docs collaboration for AI chats. Multiple humans type in the same conversation, everyone sees Claude's responses, everyone can add context. Ideal for joint deal reviews, negotiation prep, or memo drafting where two people bring different context.",
+    creExample:
+      "You and your acquisitions lead open a Cowork session in the Ram and Wolf Project to run a hold-vs-sell IRR review together. 30 minutes, one joint memo, neither of you working alone.",
+    related: ["claude-project"],
+  },
+  {
+    id: "scheduled-task",
+    moduleId: "m2",
+    term: "Scheduled task",
+    category: "Agents & Automation",
+    short: "An agent that runs a prompt on a recurring schedule and routes the output somewhere you will see it.",
+    long: "Available in both Claude and ChatGPT. Set a cron (daily, weekly, monthly, or custom), pick the underlying Project or Custom GPT, and choose where output goes: email, Slack, in-app, or a doc. Always route somewhere visible or the task will fail silently.",
+    creExample:
+      "Monday 6am: pull the latest rent rolls from Drive, flag any tenants 30+ days delinquent, draft a Gmail to your asset team. Set once, runs every week without you.",
+    related: ["agent-framework", "connector"],
+  },
+  {
+    id: "connector",
+    moduleId: "m2",
+    term: "Connector / Plugin",
+    category: "Agents & Automation",
+    short: "An integration that gives an AI tool access to a specific external service like Drive, Gmail, or Slack.",
+    long: "Claude calls them integrations. ChatGPT calls them Connectors (with Actions as the custom-API layer). Same idea: hands for your AI so it can act on your real tools. Always scope permissions to the minimum needed (read-only, one folder).",
+    creExample:
+      "Grant your Ram and Wolf Custom GPT read-only Drive access to a single folder, draft-only Gmail access, and event-create Calendar access. Anything more is over-scoped.",
+    related: ["actions", "scheduled-task"],
+  },
+  {
+    id: "actions",
+    moduleId: "m2",
+    term: "Actions (Custom GPT)",
+    category: "Agents & Automation",
+    short: "Custom API connections you configure inside a Custom GPT to reach services with no native connector.",
+    long: "Where Connectors are pre-built for common tools, Actions let you wire a Custom GPT to any HTTPS API. Powerful but requires an OpenAPI-style spec and auth setup. Use Connectors first, Actions when the connector does not exist.",
+    creExample:
+      "You want your CRE assistant to pull comps from Redfin's API. There is no native Redfin connector, so you configure an Action with the Redfin API schema and an API key.",
+    related: ["connector"],
+  },
+  {
+    id: "instructions",
+    moduleId: "m2",
+    term: "Instructions (Custom GPT / Project)",
+    category: "Prompting & Interaction",
+    short: "The persistent prompt that runs at the start of every conversation with a Custom GPT or Claude Project.",
+    long: "The biggest single lever on output quality. A 6-line template covers 80% of cases: persona, primary task, format rules, tone rules, what never to do, escalation rule. Everything else is decoration.",
+    creExample:
+      "'You are the asset manager for Ram and Wolf. When I paste a new rent roll, produce a bulleted variance memo covering tenant deltas, rent changes, expiration flags, and 3 follow-up questions. Never invent tenant names. If unclear, ask.' That is a working Instructions block.",
+    related: ["custom-gpt", "claude-project", "system-prompt"],
+  },
+  {
+    id: "knowledge",
+    moduleId: "m2",
+    term: "Knowledge (Custom GPT / Project)",
+    category: "Retrieval & Data",
+    short: "Reference documents you upload once and the AI can search across in every conversation.",
+    long: "Persistent files (PDFs, docs, CSVs, images) attached to a Custom GPT or Claude Project. Custom GPTs allow up to 20 files. Rule: fewer high-value documents beat more low-value ones. Version-control your uploads and never leave stale copies.",
+    creExample:
+      "Upload the master lease abstract, last 12 months of rent rolls, and the property fact sheet. Do NOT upload every email thread about the property or the agent will drown in noise.",
+    related: ["rag", "custom-gpt", "claude-project"],
+  },
+{
+    id: "strategy-layer",
+    moduleId: "m2",
+    term: "Strategy layer",
+    category: "Core Concepts",
+    short: "The 4 moves that must happen before you can run AGENT on a workflow.",
+    long: "Assess capabilities, formulate agentic AI vision, identify opportunities across the organization, select ONE workflow. Skipping this is the number-one reason enterprise pilots stall. AGENT operates on a single selected workflow, not on 'the company.'",
+    creExample:
+      "Before building your first CRE agent, spend 30 minutes: what AI is our team using today, what do we want AI to change by end of year, list 15-25 candidate workflows, pick one. That is the strategy layer.",
+    related: ["agent-framework", "data-opportunity-matrix"],
+  },
+  {
+    id: "reasoning-engine",
+    moduleId: "m2",
+    term: "Reasoning engine (Element 1)",
+    category: "Agents & Automation",
+    short: "The thinking layer of an agent: model, system prompt, temperature, iteration limits.",
+    long: "First of the four elements every agent has. Four choices: model selection (based on task complexity, cost, latency, data sensitivity), system prompt (role, tone, scope, constraints, domain context), reasoning depth (temperature, chain length, iteration limits), and evaluation criteria for success.",
+    creExample:
+      "For a Ram and Wolf variance memo: model Claude Sonnet 4.5, temperature 0.2 (deterministic), single-pass draft, success = 1-page memo with specific line-item citations.",
+    related: ["four-elements", "system-prompt", "temperature"],
+  },
+  {
+    id: "context-memory",
+    moduleId: "m2",
+    term: "Context and memory (Element 2)",
+    category: "Agents & Automation",
+    short: "How an agent retains knowledge and task history to reason over time.",
+    long: "Second of the four elements. Four decisions: memory scope (short-term session vs long-term persistent), storage method (vector DB or structured store), retrieval logic (similarity search, metadata filters), lifecycle (what is retained, refreshed, forgotten). Rule of thumb: small corpus goes directly in the system prompt or Project Knowledge; only build RAG for large corpora or fresh-update needs.",
+    creExample:
+      "For the Ram and Wolf agent: Claude Project Knowledge holds the master lease and 3 months of rent rolls. That is context. When you close the chat and open a new one tomorrow, the Project retains the files. That is persistent memory.",
+    related: ["four-elements", "knowledge", "rag"],
+  },
+  {
+    id: "tools-actions",
+    moduleId: "m2",
+    term: "Tools and actions (Element 3)",
+    category: "Agents & Automation",
+    short: "What the agent can read, what it can write, and through which connectors.",
+    long: "Third of the four elements. Rules: (1) start read-only, an agent that only reads can only inform, not damage. (2) Scope permissions to the minimum. Draft-only Gmail, single-folder Drive, event-create Calendar. Anything more is over-scoped.",
+    creExample:
+      "Your Ram and Wolf variance agent gets: read-only Drive on the Ram and Wolf folder, draft-only Gmail, no Calendar. Read what it needs, propose what it drafts, never send anything.",
+    related: ["four-elements", "connector", "actions"],
+  },
+  {
+    id: "governance-guardrails",
+    moduleId: "m2",
+    term: "Governance and guardrails (Element 4)",
+    category: "Risk & Governance",
+    short: "The controls that keep an agent responsible, intent-aligned, and secure.",
+    long: "Fourth of the four elements. Six choices: access rights (who can create, deploy, modify), data governance (what data can be accessed, no PII or sensitive leakage), monitoring and audit, escalation paths, compliance, soft guardrails (require source citation, forbid invention). Governance is NOT a phase at the end. It is one of the four elements of every single agent you build.",
+    creExample:
+      "Your investor-letter draft agent has soft guardrails: 'Cite the specific rent roll line item for every claim,' 'Never invent tenant names,' 'Escalate to human if rent delta exceeds $10k.' Those are element 4 in action.",
+    related: ["four-elements", "guardrails", "governance"],
+  },
+  {
+    id: "four-elements",
+    moduleId: "m2",
+    term: "The Four Elements",
+    category: "Agents & Automation",
+    short: "Every real agent has 4 elements: reasoning engine, context/memory, tools/actions, governance/guardrails.",
+    long: "Miss one and what you built is a prompt, not an agent. Reasoning engine is the thinking layer. Context and memory is what the agent knows and retains. Tools and actions is what it can read and write. Governance and guardrails is the control system. Design all four in from day one; do not add governance last.",
+    creExample:
+      "Your Ram and Wolf variance-memo Custom GPT has: reasoning (GPT-4o + system prompt + temp 0.2), context (project Knowledge = master lease + rent rolls), tools (read-only Drive + draft Gmail), governance (private, cite sources, never invent tenant names). All four = agent.",
+    related: ["reasoning-engine", "context-memory", "tools-actions", "governance-guardrails"],
+  },
+  {
+    id: "prompt-chaining",
+    moduleId: "m2",
+    term: "Prompt chaining (Archetype 1)",
+    category: "Agents & Automation",
+    short: "Sequential agentic workflow: agent to gate to agent, each step feeding the next.",
+    long: "First of the 5 workflow archetypes. Use when work breaks cleanly into controllable steps and each step has a clear pass/fail check. Gates between agents validate before advancing.",
+    creExample:
+      "Tenant onboarding: extract lease terms → gate 'all required fields present?' → cross-check against LOI → gate 'any deltas?' → draft welcome email and set up in property management system. Sequential chain, gates between.",
+    related: ["workflow-archetype", "routing", "orchestrator-workers"],
+  },
+  {
+    id: "routing",
+    moduleId: "m2",
+    term: "Routing (Archetype 2)",
+    category: "Agents & Automation",
+    short: "One classifier agent dispatches incoming work to specialist sub-workflows.",
+    long: "Second of the 5 workflow archetypes. Use when incoming requests are heterogeneous and different types need different handling. A single reasoning agent classifies, then sends the work to the right specialist.",
+    creExample:
+      "Deal-inquiry router: incoming inquiries are classified as office, retail, or industrial, then dispatched to a specialist underwriting agent for each product type (different comps, different tenant signals, different cap rate logic).",
+    related: ["workflow-archetype", "prompt-chaining"],
+  },
+  {
+    id: "parallelization",
+    moduleId: "m2",
+    term: "Parallelization (Archetype 3)",
+    category: "Agents & Automation",
+    short: "Multiple agents work on the same task simultaneously, results aggregated.",
+    long: "Third of the 5 workflow archetypes. Use when you gain value from solving the same request two or three ways, then merging. Aggregation can be rule-based (highest score wins) or a synthesizer agent that merges.",
+    creExample:
+      "Three agents draft the same quarterly investor letter in parallel with different tones: plain and direct, narrative, heavy on numbers. A fourth agent scores each on clarity and length. You hybridize the best.",
+    related: ["workflow-archetype", "orchestrator-workers"],
+  },
+  {
+    id: "orchestrator-workers",
+    moduleId: "m2",
+    term: "Orchestrator-workers (Archetype 4)",
+    category: "Agents & Automation",
+    short: "One orchestrator decomposes work, worker agents run in parallel, a synthesizer merges.",
+    long: "Fourth of the 5 workflow archetypes. The most common architecture behind 'research agent' products. Use for complex multi-step work that decomposes cleanly.",
+    creExample:
+      "Competitive market scan: orchestrator receives 'scan Seattle office market,' decomposes into (a) recent transactions, (b) CRE news sentiment, (c) sublease trends, (d) major tenant moves. Four workers run in parallel. Synthesizer produces a one-page brief.",
+    related: ["workflow-archetype", "parallelization"],
+  },
+  {
+    id: "evaluator-optimizer",
+    moduleId: "m2",
+    term: "Evaluator-optimizer (Archetype 5)",
+    category: "Agents & Automation",
+    short: "Creator drafts, evaluator critiques against rules, creator revises, loop until acceptable.",
+    long: "Fifth of the 5 workflow archetypes. Use when work improves through iteration and you can specify what 'good' looks like. Set an iteration limit so it does not loop forever.",
+    creExample:
+      "Lease amendment: creator agent drafts, evaluator agent checks against firm's lease compliance rules (tone, legal terms, required clauses), sends critique back. Creator revises. Loop up to 3 times. If still not acceptable, escalate to legal.",
+    related: ["workflow-archetype"],
+  },
+  {
+    id: "workflow-archetype",
+    moduleId: "m2",
+    term: "Workflow archetype",
+    category: "Agents & Automation",
+    short: "The shape of an agentic workflow. Match the shape to your archetype before you build.",
+    long: "Five archetypes cover almost every agentic workflow: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. Recognizing the archetype up front saves days of design work.",
+    creExample:
+      "Before you build anything for Ram and Wolf, ask: is this sequential (chain), triage (route), same-task-multi-tone (parallel), decomposable (orchestrator), or iterative (evaluator)? Naming it changes the design.",
+    related: ["prompt-chaining", "routing", "parallelization", "orchestrator-workers", "evaluator-optimizer"],
+  },
+  {
+    id: "workflow-canvas",
+    moduleId: "m2",
+    term: "Workflow Design Canvas",
+    category: "Agents & Automation",
+    short: "The 4-move one-page spec you fill out for every agentic workflow before building.",
+    long: "Move 1: define the desired outcome. Move 2: describe the trigger (automated or manual). Move 3: lay out the agents; for each, fill in all four elements. Move 4: place the six connector types (input/output, feedback, human check, programmable step, human-in-the-loop, exchange). A completed canvas is a build spec.",
+    creExample:
+      "Paste your completed canvas into Claude with 'build this as a Custom GPT: draft the Instructions, list the Knowledge to upload, name every Connector.' You get a working scaffold in 5 minutes.",
+    related: ["agent-framework", "four-elements", "workflow-archetype"],
+  },
+  {
+    id: "shadow-mode",
+    moduleId: "m2",
+    term: "Shadow mode",
+    category: "Risk & Governance",
+    short: "Deploy an agent that only proposes; a human executes. First mode of every agent.",
+    long: "One of the three drilling rules from the AGENT curriculum: 'Agents propose, they do not execute.' Ship in shadow mode. Instrument everything. Expand scope to autonomous action only after acceptance rate has stabilized above 70%.",
+    creExample:
+      "Your variance-memo agent in month 1: it drafts, you always edit before sending. Shadow. Month 4: acceptance rate 85%, you flip to 'auto-send unless flagged.' Autonomous.",
+    related: ["human-in-the-loop", "governance-guardrails", "track-step"],
+  },
+  {
+    id: "straight-through",
+    moduleId: "m2",
+    term: "Straight-through path",
+    category: "Agents & Automation",
+    short: "The 80% happy path in an agentic workflow. Build it first, before the exception lane.",
+    long: "One of the Engineer rules. Design and ship the straight-through path first: what happens when everything is normal. Then instrument the exception lane: what happens when something is unusual. Building both in parallel is a common Engineer mistake that stalls sprints.",
+    creExample:
+      "Straight-through variance memo: rent roll pulled, deltas computed, memo drafted, sent to your inbox. Exception lane: any delta above $5k or a new tenant halts and pings you for review. Build the first, then the second.",
+    related: ["engineer-step", "exception-lane"],
+  },
+  {
+    id: "exception-lane",
+    moduleId: "m2",
+    term: "Exception lane",
+    category: "Agents & Automation",
+    short: "The 20% path in an agentic workflow that handles unusual cases. Built AFTER the straight-through path.",
+    long: "The design pattern for handling unusual inputs. Every agentic workflow needs both paths. Skipping the exception lane creates agents that fail silently on edge cases. Skipping the straight-through path first creates agents that never ship.",
+    creExample:
+      "For the variance memo agent, the exception lane catches: new tenant name never seen before, rent change greater than 10% month-over-month, missing prior month data. Each triggers a specific human-review flow.",
+    related: ["straight-through", "engineer-step"],
+  },
+  {
+    id: "acceptance-rate",
+    moduleId: "m2",
+    term: "Acceptance rate",
+    category: "Risk & Governance",
+    short: "The % of agent proposals humans accept without material edit. The leading Track metric.",
+    long: "Target 70% or higher once stabilized. Below 70% after week 4 means go back to Engineer. Above 90% may mean the agent has been over-tuned to the reviewer's preferences and could drift on new content.",
+    creExample:
+      "Month 3 of your variance-memo agent: you accepted 41 of 48 drafts with only minor edits. That is 85%. Above the 70% target. Continue.",
+    related: ["track-step", "shadow-mode"],
+  },
+  {
+    id: "observability",
+    moduleId: "m2",
+    term: "Observability",
+    category: "Risk & Governance",
+    short: "Instrument every agent decision so you can debug, tune, and prove value.",
+    long: "One of the Engineer rules: instrument everything from day one. Log inputs, decisions, outputs, human overrides. Without observability you cannot compute acceptance rate, cannot spot drift, and cannot defend the agent in an audit. Non-negotiable.",
+    creExample:
+      "Every variance memo the agent drafts gets logged with a run ID, source rent-roll snapshot, decisions taken, and any human edit applied. When someone asks 'why did the memo flag this tenant?', you can answer.",
+    related: ["engineer-step", "governance-guardrails"],
   },
 ]
 

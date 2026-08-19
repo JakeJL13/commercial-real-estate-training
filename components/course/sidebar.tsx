@@ -1,12 +1,23 @@
 "use client"
 
-import { Building2, LayoutGrid, CheckCircle2, Circle, GraduationCap, BookOpen, BarChart3, Terminal } from "lucide-react"
+import { Building2, LayoutGrid, CheckCircle2, Circle, GraduationCap, BookOpen, BarChart3, Terminal, Lock } from "lucide-react"
 import { modules, course } from "@/lib/course-data"
 import { useCourse } from "./course-provider"
 import { cn } from "@/lib/utils"
 
 export function Sidebar() {
-  const { view, goDashboard, goModule, goGlossary, goStateOfAi, goAgentLab, modulePercent, overallPercent } = useCourse()
+  const {
+    view,
+    goDashboard,
+    goModule,
+    goGlossary,
+    goStateOfAi,
+    goAgentLab,
+    modulePercent,
+    overallPercent,
+    curriculumComplete,
+    curriculumLessonsRemaining,
+  } = useCourse()
 
   const activeModuleId =
     view.name === "module" ? view.moduleId : undefined
@@ -87,16 +98,29 @@ export function Sidebar() {
         </p>
 
         <button
-          onClick={goAgentLab}
+          onClick={curriculumComplete ? goAgentLab : undefined}
+          disabled={!curriculumComplete}
+          title={
+            curriculumComplete
+              ? "Open the Agent Lab"
+              : `Unlocks after all curriculum lessons complete (${curriculumLessonsRemaining} to go)`
+          }
           className={cn(
             "mb-1 flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-            view.name === "agent-lab" || view.name === "agent-lab-lesson"
-              ? "bg-sidebar-accent text-sidebar-accent-foreground"
-              : "text-sidebar-foreground hover:bg-sidebar-accent/50",
+            !curriculumComplete
+              ? "cursor-not-allowed text-sidebar-foreground/40"
+              : view.name === "agent-lab" || view.name === "agent-lab-lesson"
+                ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent/50",
           )}
         >
-          <Terminal className="size-4" />
-          Build Your Agent
+          {curriculumComplete ? <Terminal className="size-4" /> : <Lock className="size-4" />}
+          <span className="flex-1 text-left">Build Your Agent</span>
+          {!curriculumComplete && (
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-sidebar-foreground/40">
+              Locked
+            </span>
+          )}
         </button>
 
         <p className="px-3 pb-2 pt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-sidebar-foreground/55">

@@ -28,6 +28,8 @@ interface CourseContextValue {
   overallPercent: number
   modulePercent: (moduleId: string) => number
   nextLessonId: string | null
+  curriculumComplete: boolean
+  curriculumLessonsRemaining: number
 }
 
 const CourseContext = createContext<CourseContextValue | null>(null)
@@ -92,6 +94,14 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
     return next ? next.lesson.id : null
   }, [completed])
 
+  // Curriculum is complete when every lesson in every module has been marked done.
+  // The Workshop + Agent Lab unlock only after this is true.
+  const curriculumLessonsRemaining = useMemo(() => {
+    const all = flatLessons()
+    return all.filter(({ lesson }) => !completed.has(lesson.id)).length
+  }, [completed])
+  const curriculumComplete = curriculumLessonsRemaining === 0
+
   const value = useMemo<CourseContextValue>(
     () => ({
       view,
@@ -109,8 +119,10 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
       overallPercent: Math.round((completed.size / totalLessons) * 100),
       modulePercent,
       nextLessonId,
+      curriculumComplete,
+      curriculumLessonsRemaining,
     }),
-    [view, completed, goDashboard, goModule, goLesson, goGlossary, goStateOfAi, goAgentLab, goAgentLabLesson, toggleComplete, isComplete, modulePercent, nextLessonId],
+    [view, completed, goDashboard, goModule, goLesson, goGlossary, goStateOfAi, goAgentLab, goAgentLabLesson, toggleComplete, isComplete, modulePercent, nextLessonId, curriculumComplete, curriculumLessonsRemaining],
   )
 
   return <CourseContext.Provider value={value}>{children}</CourseContext.Provider>
