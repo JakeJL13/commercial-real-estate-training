@@ -1,7 +1,9 @@
 "use client"
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react"
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { modules, totalLessons, flatLessons } from "@/lib/course-data"
+
+const STORAGE_KEY = "cre-bootcamp-progress-v1"
 
 type View =
   | { name: "dashboard" }
@@ -30,6 +32,10 @@ interface CourseContextValue {
   nextLessonId: string | null
   curriculumComplete: boolean
   curriculumLessonsRemaining: number
+  resetProgress: () => void
+  progressHydrated: boolean
+  justCompletedModuleId: string | null
+  dismissModuleCelebration: () => void
 }
 
 const CourseContext = createContext<CourseContextValue | null>(null)
@@ -37,6 +43,34 @@ const CourseContext = createContext<CourseContextValue | null>(null)
 export function CourseProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState<View>({ name: "dashboard" })
   const [completed, setCompleted] = useState<Set<string>>(new Set())
+  const [progressHydrated, setProgressHydrated] = useState(false)
+  const [justCompletedModuleId, setJustCompletedModuleId] = useState<string | null>(null)
+  const previousModulePctRef = useRef<Record<string, number>>({})
+
+  // Hydrate from localStorage after mount (SSR-safe).
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY)
+      if (raw) {
+        const parsed = JSON.parse(raw)
+        if (Array.isArray(parsed)) setCompleted(new Set(parsed.filter((v): v is string => typeof v === "string")))
+      }
+    } catch {
+      // corrupt storage, ignore
+    }
+    setProgressHydrated(true)
+  }, [])
+
+  // Persist on change, but not before hydration completes.
+  useEffect(() => {
+    if (!progressHydrated || typeof window === "undefined") return
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(completed)))
+    } catch {
+      // quota or private-mode failure, ignore
+    }
+  }, [completed, progressHydrated])
 
   const goDashboard = useCallback(() => {
     setView({ name: "dashboard" })
@@ -76,6 +110,20 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
     })
   }, [])
 
+  const resetProgress = useCallback(() => {
+    setCompleted(new Set())
+    setJustCompletedModuleId(null)
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.removeItem(STORAGE_KEY)
+      } catch {
+        // ignore
+      }
+    }
+  }, [])
+
+  const dismissModuleCelebration = useCallback(() => setJustCompletedModuleId(null), [])
+
   const isComplete = useCallback((lessonId: string) => completed.has(lessonId), [completed])
 
   const modulePercent = useCallback(
@@ -102,6 +150,31 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
   }, [completed])
   const curriculumComplete = curriculumLessonsRemaining === 0
 
+  // Detect the moment a module transitions to 100%, fire a celebration banner.
+  useEffect(() => {
+    if (!progressHydrated) {
+      // Seed the ref during hydration so restored progress doesn't fire a stale toast.
+      const seeded: Record<string, number> = {}
+      for (const m of modules) {
+        if (m.lessons.length === 0) { seeded[m.id] = 0; continue }
+        const done = m.lessons.filter((l) => completed.has(l.id)).length
+        seeded[m.id] = Math.round((done / m.lessons.length) * 100)
+      }
+      previousModulePctRef.current = seeded
+      return
+    }
+    for (const m of modules) {
+      if (m.lessons.length === 0) continue
+      const done = m.lessons.filter((l) => completed.has(l.id)).length
+      const pct = Math.round((done / m.lessons.length) * 100)
+      const prev = previousModulePctRef.current[m.id] ?? 0
+      if (prev < 100 && pct === 100) {
+        setJustCompletedModuleId(m.id)
+      }
+      previousModulePctRef.current[m.id] = pct
+    }
+  }, [completed, progressHydrated])
+
   const value = useMemo<CourseContextValue>(
     () => ({
       view,
@@ -121,8 +194,12 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
       nextLessonId,
       curriculumComplete,
       curriculumLessonsRemaining,
+      resetProgress,
+      progressHydrated,
+      justCompletedModuleId,
+      dismissModuleCelebration,
     }),
-    [view, completed, goDashboard, goModule, goLesson, goGlossary, goStateOfAi, goAgentLab, goAgentLabLesson, toggleComplete, isComplete, modulePercent, nextLessonId, curriculumComplete, curriculumLessonsRemaining],
+    [view, completed, goDashboard, goModule, goLesson, goGlossary, goStateOfAi, goAgentLab, goAgentLabLesson, toggleComplete, isComplete, modulePercent, nextLessonId, curriculumComplete, curriculumLessonsRemaining, resetProgress, progressHydrated, justCompletedModuleId, dismissModuleCelebration],
   )
 
   return <CourseContext.Provider value={value}>{children}</CourseContext.Provider>

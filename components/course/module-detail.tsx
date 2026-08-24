@@ -1,19 +1,29 @@
 "use client"
 
-import { ArrowLeft, ChevronRight, CheckCircle2, Clock } from "lucide-react"
+import { ArrowLeft, ChevronRight, CheckCircle2, Clock, PartyPopper, X } from "lucide-react"
 import { modules } from "@/lib/course-data"
 import { useCourse } from "./course-provider"
 import { lessonMeta } from "./lesson-meta"
 import { cn } from "@/lib/utils"
 
 export function ModuleDetail({ moduleId }: { moduleId: string }) {
-  const { goDashboard, goLesson, isComplete, modulePercent } = useCourse()
+  const {
+    goDashboard,
+    goLesson,
+    isComplete,
+    modulePercent,
+    justCompletedModuleId,
+    dismissModuleCelebration,
+    curriculumLessonsRemaining,
+    curriculumComplete,
+  } = useCourse()
   const mod = modules.find((m) => m.id === moduleId)
   if (!mod) return null
 
   const pct = modulePercent(mod.id)
   const minutes = mod.lessons.reduce((s, l) => s + l.duration, 0)
   const index = modules.findIndex((m) => m.id === moduleId)
+  const showCelebration = justCompletedModuleId === mod.id
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 md:px-10">
@@ -24,6 +34,28 @@ export function ModuleDetail({ moduleId }: { moduleId: string }) {
         <ArrowLeft className="size-3.5" />
         Dashboard
       </button>
+
+      {showCelebration && (
+        <div className="mb-6 flex items-start gap-4 rounded-xl border border-accent/40 bg-accent/10 p-5">
+          <PartyPopper className="mt-0.5 size-5 shrink-0 text-accent" />
+          <div className="flex-1">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">Module complete</p>
+            <p className="mt-1 text-base font-semibold">Nice work. {mod.title} is done.</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {curriculumComplete
+                ? "Every module is finished. The Agent Lab is now unlocked from the sidebar."
+                : `${curriculumLessonsRemaining} lesson${curriculumLessonsRemaining === 1 ? "" : "s"} left across the remaining modules before the Agent Lab unlocks.`}
+            </p>
+          </div>
+          <button
+            onClick={dismissModuleCelebration}
+            className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-accent/20 hover:text-foreground"
+            aria-label="Dismiss"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+      )}
 
       <header className="border-b border-border pb-8">
         <div className="flex items-center gap-3">

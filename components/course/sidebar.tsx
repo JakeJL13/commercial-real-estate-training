@@ -1,6 +1,6 @@
 "use client"
 
-import { Building2, LayoutGrid, CheckCircle2, Circle, GraduationCap, BookOpen, BarChart3, Terminal, Lock } from "lucide-react"
+import { Building2, LayoutGrid, CheckCircle2, Circle, GraduationCap, BookOpen, BarChart3, Terminal, Lock, RotateCcw } from "lucide-react"
 import { modules, course } from "@/lib/course-data"
 import { useCourse } from "./course-provider"
 import { cn } from "@/lib/utils"
@@ -17,7 +17,15 @@ export function Sidebar() {
     overallPercent,
     curriculumComplete,
     curriculumLessonsRemaining,
+    completedCount,
+    resetProgress,
   } = useCourse()
+
+  const handleReset = () => {
+    if (typeof window === "undefined") return resetProgress()
+    const ok = window.confirm("Reset all progress? This clears every completed lesson.")
+    if (ok) resetProgress()
+  }
 
   const activeModuleId =
     view.name === "module" ? view.moduleId : undefined
@@ -161,11 +169,21 @@ export function Sidebar() {
         </ul>
       </nav>
 
-      <div className="border-t border-sidebar-border px-6 py-4">
+      <div className="space-y-3 border-t border-sidebar-border px-6 py-4">
         <div className="flex items-center gap-2 text-sidebar-foreground/70">
           <GraduationCap className="size-4" />
           <span className="font-mono text-[11px] uppercase tracking-[0.12em]">{course.cohort}</span>
         </div>
+        {completedCount > 0 && (
+          <button
+            onClick={handleReset}
+            className="flex w-full items-center justify-center gap-1.5 rounded-md border border-sidebar-border/60 px-2 py-1.5 text-[11px] font-medium text-sidebar-foreground/70 transition-colors hover:border-sidebar-border hover:text-sidebar-foreground"
+            title="Clear all completed lessons"
+          >
+            <RotateCcw className="size-3" />
+            Reset progress
+          </button>
+        )}
       </div>
     </aside>
   )

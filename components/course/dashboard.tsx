@@ -1,13 +1,23 @@
 "use client"
 
-import { ArrowRight, Clock, BookMarked, Trophy, PlayCircle } from "lucide-react"
+import { ArrowRight, Clock, BookMarked, Trophy, PlayCircle, Terminal, Lock } from "lucide-react"
 import { modules, course, totalLessons, totalMinutes, findModuleByLesson } from "@/lib/course-data"
 import { useCourse } from "./course-provider"
 import { lessonMeta } from "./lesson-meta"
 import { Button } from "@/components/ui/button"
 
 export function Dashboard() {
-  const { goModule, goLesson, overallPercent, completedCount, modulePercent, nextLessonId } = useCourse()
+  const {
+    goModule,
+    goLesson,
+    goAgentLab,
+    overallPercent,
+    completedCount,
+    modulePercent,
+    nextLessonId,
+    curriculumComplete,
+    curriculumLessonsRemaining,
+  } = useCourse()
 
   const nextModule = nextLessonId ? findModuleByLesson(nextLessonId) : undefined
   const nextLesson = nextModule?.lessons.find((l) => l.id === nextLessonId)
@@ -69,6 +79,70 @@ export function Dashboard() {
           </p>
         </section>
       )}
+
+      {/* Workshop card */}
+      <section className="mb-10">
+        <div className="mb-4 flex items-baseline justify-between">
+          <h2 className="text-lg font-semibold tracking-tight">Workshop</h2>
+          <span className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            {curriculumComplete ? "Unlocked" : "Locked"}
+          </span>
+        </div>
+        <div
+          className={
+            curriculumComplete
+              ? "rounded-xl border border-accent/40 bg-card p-6 md:p-7"
+              : "rounded-xl border border-border bg-muted/30 p-6 md:p-7"
+          }
+        >
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                {curriculumComplete ? (
+                  <>
+                    <Terminal className="size-3.5 text-accent" />
+                    Build Your Agent
+                  </>
+                ) : (
+                  <>
+                    <Lock className="size-3.5" />
+                    Locked
+                  </>
+                )}
+              </div>
+              <h3 className="mt-2 text-xl font-semibold tracking-tight text-balance md:text-2xl">
+                {curriculumComplete
+                  ? "Build a local financial agent on your Mac"
+                  : "The Agent Lab unlocks after Module 7"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {curriculumComplete
+                  ? "Install VS Code and Claude Code, then build an agent that reads Ram and Wolf documents and produces variance analysis, NOI reconciliation, and deal underwriting."
+                  : `Finish every curriculum lesson first. You have ${curriculumLessonsRemaining} lesson${curriculumLessonsRemaining === 1 ? "" : "s"} left across the seven modules.`}
+              </p>
+            </div>
+            <Button
+              size="lg"
+              onClick={curriculumComplete ? goAgentLab : undefined}
+              disabled={!curriculumComplete}
+              className="shrink-0"
+              variant={curriculumComplete ? "default" : "secondary"}
+            >
+              {curriculumComplete ? (
+                <>
+                  Open the Agent Lab
+                  <ArrowRight className="size-4" />
+                </>
+              ) : (
+                <>
+                  <Lock className="size-4" />
+                  Locked
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* Curriculum grid */}
       <div className="mb-4 flex items-baseline justify-between">
